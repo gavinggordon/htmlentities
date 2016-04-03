@@ -8,14 +8,20 @@ compared to the standard htmlentities and html_entity_decode functions that are 
 ### Examples
 
 ##### Instantiation:
-$formatter = new \GGG\HtmlEntities\CodeFormatter();
+
+  $formatter = new \GGG\HtmlEntities\CodeFormatter();
 
 ##### Encoding:
-$to_encode = "-,;:'";
-$encoded = $formatter->encode($to_encode);
-echo $encoded;
+
+    $to_encode = "-,;:'";
+    $encoded = $formatter->encode($to_encode);
+    echo $encoded;
+    // Result: &amp;hyphen;&amp;comma;&amp;semi;&amp;colon;&amp;apos;
 
 ##### Decoding:
-$to_decode = '&amp;middot;&amp;apos;';
-$decoded = $formatter->decode($to_decode);
-echo $decoded;
+
+    $to_decode = '&amp;tilde;&amp;apos;';
+    $decoded = $formatter->decode($to_decode);
+    echo $decoded;
+    // Result: ~'
+
