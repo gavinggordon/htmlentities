@@ -37,8 +37,8 @@
     }
   },
   "autoload-dev": {
-    "classmap": [
-    	"tests/"
-    ]
+    "psr-4": {
+      "GGG\\Tests\\Html\\": "tests/Html/"
+    }
   }
 }
