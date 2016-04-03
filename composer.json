@@ -1,0 +1,35 @@
+{
+  "name": "gavinggordon/htmlentities",
+  "type": "library",
+  "description": "A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.",
+  "keywords": [
+    "php",
+	"html",
+    "htmlentities",
+    "entities",
+	"encode",
+	"decode",
+	"format"
+  ],
+  "homepage": "http://htmlentities.gavingordon.com",
+  "support": {
+    "issues": "https://github.com/gavinggordon/htmlentities/issues",
+    "source": "https://github.com/gavinggordon/htmlentities"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gavin G Gordon",
+      "email": "me@gavingordon.com",
+      "homepage": "https://gavingordon.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "GGG\\HtmlEntities\\": "src/GGG/HtmlEntities/"
+    }
+  }
+}
