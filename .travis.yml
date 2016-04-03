@@ -1,0 +1,13 @@
+language: php
+php:
+- 5.6
+- 5.5
+- 5.4
+before_install:
+- travis_retry composer self-update
+install:
+- travis_retry composer install --no-dev --no-interaction
+script: phpunit
+deploy:
+  file: EqualTest.php
+  skip_cleanup: true
