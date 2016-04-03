@@ -25,3 +25,5 @@ compared to the standard htmlentities and html_entity_decode functions that are 
     echo $decoded;
     // Result: ~'
 
+
+[View this class package](http://www.phpclasses.org/package/9698.html) on [PHPClasses.org](http://www.phpclasses.org).
