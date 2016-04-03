@@ -1,6 +1,6 @@
 <?php
 
-namespace GGG\Tests\Html;
+namespace GGG\Tests;
 
 use \GGG\Html\HtmlEntities as HtmlEntities;
 
