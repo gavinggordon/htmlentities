@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-        bootstrap="tests/Html/bootstrap.php"
+        bootstrap="./tests/Html/bootstrap.php"
         backupGlobals="false"
         backupStaticAttributes="false"
         strict="true"
@@ -9,7 +9,7 @@
 
     <testsuites>
         <testsuite name="Core">
-            <file>tests/Html/SameTest.php</file>
+            <file>./tests/SameTest.php</file>
         </testsuite>
     </testsuites>
 	
