@@ -16,6 +16,7 @@
     "issues": "https://github.com/gavinggordon/htmlentities/issues",
     "source": "https://github.com/gavinggordon/htmlentities"
   },
+  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
@@ -27,9 +28,17 @@
   "require": {
     "php": ">=5.4.0"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8"
+  },
   "autoload": {
     "psr-4": {
-      "GGG\\Html\\": "ggg/src/Html/"
+      "GGG\\Html\\": "src/Html/"
     }
+  },
+  "autoload-dev": {
+    "classmap": [
+    	"tests/"
+    ]
   }
 }
