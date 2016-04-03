@@ -1,8 +1,8 @@
 <?php
 
-namespace \GGG\HtmlEntities;
+namespace \GGG\Html;
 
-class CodeFormatter
+class HtmlEntities
 {
 
 	private $decoded_chars;
