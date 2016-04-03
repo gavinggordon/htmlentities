@@ -13,22 +13,22 @@ class SameTest extends \PHPUnit_Framework_TestCase
 
 	public function __construct()
 	{
-		$this->unencoded = '-,;:';
-		$this->encoded = '&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
+		$this->unencoded = '@,;:';
+		$this->encoded = '&amp;percnt;&amp;ast;&amp;lpar;&amp;num;';
 		$this->TestClass = new HtmlEntities;
 	}
 
 	public function testFailure()
     {
 		$actual = $this->TestClass->encode( $this->unencoded );
-		$expected = '&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;';
+		$expected = '&amp;commat;&amp;comma;&amp;semi;&amp;colon;';
         $this->assertSame( $expected, $actual );
     }
 	
 	public function testFailure2()
     {
 		$actual = $this->TestClass->decode( $this->encoded );
-		$expected = '~*(#';
+		$expected = '%*(#';
         $this->assertSame( $expected, $actual );
     }
 	
