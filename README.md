@@ -1,5 +1,7 @@
 # HtmlEntities
 
+[![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=v1.0.0)](https://travis-ci.org/gavinggordon/htmlentities)
+
 This class (GGG\Html\HtmlEntities) provides the capability to decode and encode a wider variety of html characters, 
 compared to Php's predefined functions, htmlentities and html_entity_decode.
 
