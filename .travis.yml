@@ -1,11 +1,10 @@
 language: php
 
-sudo: false
+sudo: required
 
 cache:
   directories:
-  - $HOME/vendor
-
+  - vendor
 
 php:
   - 5.6
@@ -19,5 +18,5 @@ install:
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
-  - mkdir -p $HOME/build/logs
+  - mkdir -p /home/travis/build/logs
   - phpunit --coverage-text --verbose --coverage-clover=coverage.clover --coverage-html coverage

@@ -2,20 +2,21 @@
 
 namespace GGGTests;
 
-use GGG\Html\HtmlEntities;
+//use GGG\Html\HtmlEntities;
 
 class HtmlEntitiesTest extends \PHPUnit_Framework_TestCase
 {
 
-	private $TestClass = NULL;
-	private $unencoded = NULL;
-	private $encoded = NULL;
+	public $TestClass = NULL;
+	public $unencoded = NULL;
+	public $encoded = NULL;
 
 	public function __construct()
 	{
+		include_once( dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Html' . DIRECTORY_SEPARATOR . 'HtmlEntities.php' );
 		$this->unencoded = '@,;:';
 		$this->encoded = '&amp;percnt;&amp;ast;&amp;lpar;&amp;num;';
-		$this->TestClass = new HtmlEntities;
+		$this->TestClass = new \GGG\Html\HtmlEntities();
 	}
 
 	public function testEncodeEntities()
