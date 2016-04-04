@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnError="true" stopOnFailure="true" stopOnIncomplete="false" stopOnSkipped="false" bootstrap="tests/Html/Bootstrap.php">
+<phpunit colors="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnError="true" stopOnFailure="true" stopOnIncomplete="false" stopOnSkipped="false" bootstrap="./tests/html/Bootstrap.php">
 	<testsuites>
-		<testsuite name="Tests">
-		   <directory>./tests/Html/</directory>
+		<testsuite name="HtmlEntitiesTest">
+		   <directory>./tests/html/</directory>
 	   </testsuite>
 	</testsuites>
 	<filter>
@@ -10,7 +10,4 @@
 			<directory suffix=".php">src</directory>
 		</whitelist>
 	</filter>
-	<logging>
-		<log type="coverage-html" target="build/coverage" title="gavinggordon/htmlentities" charset="UTF-8" yui="true" highlight="true" lowUpperBound="60" highLowerBound="90"/>
-	</logging>
 </phpunit>

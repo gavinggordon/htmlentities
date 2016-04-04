@@ -45,7 +45,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "GGGTests\\": "tests/Html/"
+      "GGGTests\\": "tests/html/"
     }
   }
 }
