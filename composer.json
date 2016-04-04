@@ -40,7 +40,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GGG\\Html\\": "src/Html/"
+      "GGG\\Html\\": "src/GGG/Html/"
     }
   },
   "autoload-dev": {
