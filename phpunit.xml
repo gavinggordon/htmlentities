@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnError="true" stopOnFailure="true" stopOnIncomplete="false" stopOnSkipped="false" bootstrap="./tests/html/Bootstrap.php">
 	<testsuites>
-		<testsuite name="HtmlEntitiesTest">
+		<testsuite name="HtmlTests">
 		   <directory>./tests/html/</directory>
 	   </testsuite>
 	</testsuites>

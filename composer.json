@@ -46,6 +46,9 @@
   "autoload-dev": {
     "psr-4": {
       "GGGTests\\": "tests/html/"
-    }
+    },
+	"files": [
+		"tests/html/Bootstrap.php"
+	]
   }
 }
