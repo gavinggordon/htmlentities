@@ -18,7 +18,7 @@ matrix:
 install:
   - travis_retry composer self-update
 
-before-script:
+after-install:
   - travis_retry composer install --no-interaction --prefer-source
   
 script:
