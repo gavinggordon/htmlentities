@@ -3,7 +3,10 @@ php:
 - 5.6
 - 5.5
 - 5.4
+env:
+ global:
+  - HOME=.
 before_script:
 - composer self-update
 - composer install --prefer-source --no-interaction --dev
-script: phpunit SameTest
+script: phpunit HOME/tests/SameTest
