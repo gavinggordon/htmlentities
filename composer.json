@@ -3,6 +3,7 @@
   "type": "library",
   "description": "A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.",
   "keywords": [
+	  	"1.0.0",
 		"php",
 		"html",
 		"htmlentities",
