@@ -16,10 +16,10 @@ matrix:
   fast_finish: true
 
 install:
-  - travis_retry composer install --no-interaction --prefer-source
-
-before-script:
   - travis_retry composer self-update
 
+before-script:
+  - travis_retry composer install --no-interaction --prefer-source
+  
 script:
-  - phpunit
+  - phpunit tests/html/HtmlEntitiesTest
