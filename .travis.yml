@@ -26,5 +26,5 @@ before-script:
   - travis_retry composer self-update
 
 script:
-  - php -r "include_once('./tests/Html/Bootstrap.php');"
+  - php -r "include_once('tests/Html/Bootstrap.php');"
   - phpunit --configuration phpunit.xml
