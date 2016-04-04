@@ -22,8 +22,15 @@
     {
       "name": "Gavin G Gordon",
       "email": "support@gavingordon.com",
-      "homepage": "https://gavingordon.com"
+      "homepage": "https://gavingordon.com",
+	  "role": "Developer"
     }
+  ],
+  "repositories": [
+    {
+	  "type": "git",
+	  "url": "https://github.com/gavinggordon/htmlentities.git"
+	}
   ],
   "require": {
     "php": ">=5.4.0"
@@ -37,8 +44,8 @@
     }
   },
   "autoload-dev": {
-    "classmap": [
-      "tests/SameTest.php"
-    ]
+    "psr-4": {
+      "GGGTests\\": "tests/Html/"
+    }
   }
 }

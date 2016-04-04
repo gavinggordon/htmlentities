@@ -1,6 +1,10 @@
 <?php
 
-class SameTest extends \PHPUnit_Framework_TestCase
+namespace GGGTests;
+
+use GGG\Html\HtmlEntities;
+
+class HtmlEntitiesTest extends \PHPUnit_Framework_TestCase
 {
 
 	private $TestClass = NULL;
@@ -11,17 +15,17 @@ class SameTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->unencoded = '@,;:';
 		$this->encoded = '&amp;percnt;&amp;ast;&amp;lpar;&amp;num;';
-		$this->TestClass = new \GGG\Html\HtmlEntities;
+		$this->TestClass = new HtmlEntities;
 	}
 
-	public function testFailure()
+	public function testEncodeEntities()
     {
 		$actual = $this->TestClass->encode( $this->unencoded );
 		$expected = '&amp;commat;&amp;comma;&amp;semi;&amp;colon;';
         $this->assertSame( $expected, $actual );
     }
 	
-	public function testFailure2()
+	public function testDecodeEntities()
     {
 		$actual = $this->TestClass->decode( $this->encoded );
 		$expected = '%*(#';
