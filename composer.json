@@ -37,8 +37,8 @@
     }
   },
   "autoload-dev": {
-    "psr-4": {
-      "GGG\\Tests\\": "tests/Html/"
-    }
+    "classmap": [
+      "tests/SameTest.php"
+    ]
   }
 }

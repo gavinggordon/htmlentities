@@ -1,9 +1,5 @@
 <?php
 
-namespace GGG\Tests;
-
-use \GGG\Html\HtmlEntities as HtmlEntities;
-
 class SameTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -15,7 +11,7 @@ class SameTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->unencoded = '@,;:';
 		$this->encoded = '&amp;percnt;&amp;ast;&amp;lpar;&amp;num;';
-		$this->TestClass = new HtmlEntities;
+		$this->TestClass = new \GGG\Html\HtmlEntities;
 	}
 
 	public function testFailure()
