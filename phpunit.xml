@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" stopOnError="true" stopOnFailure="true" stopOnIncomplete="false" stopOnSkipped="false" bootstrap="tests/Bootstrap.php">
+<phpunit backupGlobals="false"
+			  backupStaticAttributes="false"
+			  bootstrap="vendor/autoload.php"
+			  colors="true" 
+			  convertErrorsToExceptions="true" 
+			  convertNoticesToExceptions="true" 
+			  convertWarningsToExceptions="true" 
+			  processIsolation="false" 
+			  stopOnFailure="true" 
+			  syntaxCheck="false">
 	<testsuites>
-		<testsuite name="HtmlEntities">
-      		<file>tests/GGG/Html/HtmlEntitiesTest.php</file>
+		<testsuite name="HtmlEntities Test Suite">
+      		<directory suffix=".php">./tests/</directory>
     	</testsuite>
 	</testsuites>
-	<filter>
-		<whitelist addUncoveredFilesFromWhitelist="true">
-			<directory suffix=".php">src</directory>
-		</whitelist>
-	</filter>
 </phpunit>

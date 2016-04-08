@@ -1,6 +1,6 @@
 <?php
 
-namespace GGG\Html;
+namespace GGG\HtmlEntities;
 
 class HtmlEntities
 {
