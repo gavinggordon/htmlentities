@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)s)
 
-This class (GGG\Html\HtmlEntities) provides the capability to decode and encode a wider variety of html characters, 
+This class (GGG\HtmlEntities\HtmlEntities) provides the capability to decode and encode a wider variety of html characters, 
 compared to Php's predefined functions, htmlentities and html_entity_decode.
 
 ## Installation
@@ -14,7 +14,7 @@ compared to Php's predefined functions, htmlentities and html_entity_decode.
 #### Instantiation:
 
 	include_once( __DIR__ . '/vendor/autoload.php' );
-	$formatter = new \GGG\HtmlEntities\CodeFormatter();
+	$formatter = new \GGG\HtmlEntities\HtmlEntities();
 
 #### Encoding:
 
