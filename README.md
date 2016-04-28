@@ -2,8 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
 
-This class (GGG\HtmlEntities\HtmlEntities) provides the capability to decode and encode a wider variety of html characters, 
-compared to Php's predefined functions, htmlentities and html_entity_decode.
+These classes (GGG\HtmlEntities\DecoderPlus & GGG\HtmlEntities\EncoderPlus) provide the capability to decode and encode a wider variety of html characters than Php's predefined functions, 'htmlentities' and 'html_entity_decode'.
 
 ## Installation
 
@@ -14,21 +13,22 @@ compared to Php's predefined functions, htmlentities and html_entity_decode.
 #### Instantiation:
 
 	include_once( __DIR__ . '/vendor/autoload.php' );
-	$formatter = new \GGG\HtmlEntities\HtmlEntities();
 
 #### Encoding:
 
-    $to_encode = "-,;:";
-    $encoded = $formatter->encode($to_encode);
+    $to_encode = 'Test-,;:';
+	$encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
+    $encoded = $encoder->encode();
     echo $encoded;
-    // Result: &amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
+    // Result: Test&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
 
 #### Decoding:
 
-    $to_decode = '&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
-    $decoded = $formatter->decode($to_decode);
+    $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
+	$decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
+    $decoded = $decoder->decode();
     echo $decoded;
-    // Result: ~*(#
+    // Result: Test~*(#
 
 
 [View this class package](http://www.phpclasses.org/package/9698.html) on [PHPClasses.org](http://www.phpclasses.org).
