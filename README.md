@@ -1,34 +1,109 @@
-# HtmlEntities
+# HtmlEntities 
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
 
-These classes (GGG\HtmlEntities\DecoderPlus & GGG\HtmlEntities\EncoderPlus) provide the capability to decode and encode a wider variety of html characters than Php's predefined functions, 'htmlentities' and 'html_entity_decode'.
+--------------
 
-## Installation
+## Prologue
 
-	composer require gavinggordon/htmlentities
+The ability to encode and decode a certain set of characters called 'Html Entities' has existed since PHP4. Amongst the vast number of functions built into PHP, there are 4 nearly identical functions that are used to encode and decode html entities; despite their similarities, however, 2 of them do provide additional capabilities not available to the others.
 
-## Examples
+| Encoding Functions | Decoding Functions |
+|--------------|--------------|
+| htmlentities&sup1; | html_entity_decode&sup1; | 
+| htmlspecialchars&sup2; | htmlspecialchars_decode&sup2; |
 
-#### Instantiation:
 
-	include_once( __DIR__ . '/vendor/autoload.php' );
+__&sup1;__ *htmlentities and html_entity_decode can only encode and decode characters within PHP's HTML translations table.*
+
+__&sup2;__ *htmlspecialchars and htmlspecialchars_decode can only encode and decode special characters&sup3;.*
+
+__&sup3;__ *special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.*
+
+--------------
+
+## What Sets This Apart
+ 
+What sets this class apart from the rest is that this class, in addition to being able to encode and decode all of the same characters/entities that can be encoded and decoded by PHP's htmlentities() and html_entity_decode() functions, it can also encode and decode a large number of characters/entities which PHP's built-in htmlentities encoding and decoding functions won't encode/decode, like, for instance, punctuation characters that do not have a special meaning in HTML.
+
+--------------
+
+## Quick Class Overview
+
+__Encoding__
+
+    use \GGG\HtmlEntities\EncoderPlus as Encoder;
+    $to_encode = 'String of values to encode.';
+    $encoder = new Encoder( $to_encode );
+    $encoded = $encoder->encode();
+    echo $encoded;
+
+__Decoding__
+
+    use \GGG\HtmlEntities\DecoderPlus as Decoder;
+    $to_decode = 'String of values to decode.';
+    $decoder = new Decoder( $to_decode );
+    $decoded = $decoder->decode();
+    echo $decoded;
+
+--------------
+
+### Installation (via Composer)
+
+    composer require gavinggordon/htmlentities
+
+### Include autoloader.php
+
+    include_once( __DIR__ . '/vendor/autoload.php' );
+
+### Examples
 
 #### Encoding:
 
+    // Set a variable containing a string of the encoded characters you wish to be encoded;
+    
     $to_encode = 'Test-,;:';
-	$encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
+
+    // An instance of encoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
+    // A single argument value is required and must be of type String;
+    
+    $encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
+
+    // Get the encoded result by using the encode method on the returned instance of encoderplus;
+    
     $encoded = $encoder->encode();
+
+    // Display the encoded result, which is of type String;
+    
     echo $encoded;
-    // Result: Test&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
+
+    // Test&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
 
 #### Decoding:
 
+    // Set a variable containing a string of the encoded characters you wish to be decoded;
+    
     $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
-	$decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
+
+    // An instance of decoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
+    // A single argument value is required and must be of type String;
+    
+    $decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
+
+    // Get the decoded result by using the decode method on the returned instance of decoderplus;
+    
     $decoded = $decoder->decode();
+
+    // Display the decoded result, which is of type String
+    
     echo $decoded;
-    // Result: Test~*(#
 
+    // Test~*(#
 
-[View this class package](http://www.phpclasses.org/package/9698.html) on [PHPClasses.org](http://www.phpclasses.org).
+--------------
+
+#### More Information
+
+This [class](http://www.phpclasses.org/package/9698.html) has been nominated for a PHP Innovation Award, provided by [PHPClasses.org](http://www.phpclasses.org). If you found [this class](http://www.phpclasses.org/package/9698.html) to be at all interesting, helpful, particularly useful, or innovative in any way, please [vote](http://www.phpclasses.org/vote.html) for it, to show your support for [this](http://www.phpclasses.org/package/9698.html) or any other PHP classes accessible online via my [GitHub profile](https://github.com/gavinggordon) or [PHPClasses.org profile](http://www.phpclasses.org/browse/author/1348645.html).
+
+--------------
