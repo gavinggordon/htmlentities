@@ -8,6 +8,7 @@
 
 The ability to encode and decode a certain set of characters called 'Html Entities' has existed since PHP4. Amongst the vast number of functions built into PHP, there are 4 nearly identical functions that are used to encode and decode html entities; despite their similarities, however, 2 of them do provide additional capabilities not available to the others.
 
+
 | Encoding Functions | Decoding Functions |
 |--------------|--------------|
 | htmlentities&sup1; | html_entity_decode&sup1; | 
@@ -15,36 +16,44 @@ The ability to encode and decode a certain set of characters called 'Html Entiti
 
 
 __&sup1;__ *htmlentities and html_entity_decode can only encode and decode characters within PHP's HTML translations table.*
-
 __&sup2;__ *htmlspecialchars and htmlspecialchars_decode can only encode and decode special characters&sup3;.*
-
 __&sup3;__ *special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.*
 
 --------------
 
 ## What Sets This Apart
  
-What sets this class apart from the rest is that this class, in addition to being able to encode and decode all of the same characters/entities that can be encoded and decoded by PHP's htmlentities() and html_entity_decode() functions, it can also encode and decode a large number of characters/entities which PHP's built-in htmlentities encoding and decoding functions won't encode/decode, like, for instance, punctuation characters that do not have a special meaning in HTML.
+What sets this class apart from the rest is that this class, in addition to being able to encode and decode all of the same characters/entities that can be encoded and decoded by PHP's htmlentities() and html_entity_decode() functions, it can also encode and decode a very large number of characters/entities which PHP's built-in htmlentities encoding and decoding functions won't encode/decode, due to their lack of special meaning in HTML, like:
+
+ - punctuation characters;
+ - ASCII characters;
+ - Greek characters;
+ - Latin characters;
+ - Russian characters;
+ - Arithmetic characters;
+ - and tons more...
 
 --------------
 
 ## Quick Class Overview
 
 __Encoding__
-
+    
     use \GGG\HtmlEntities\EncoderPlus as Encoder;
     $to_encode = 'String of values to encode.';
     $encoder = new Encoder( $to_encode );
     $encoded = $encoder->encode();
     echo $encoded;
+    
 
 __Decoding__
-
+    
     use \GGG\HtmlEntities\DecoderPlus as Decoder;
     $to_decode = 'String of values to decode.';
     $decoder = new Decoder( $to_decode );
     $decoded = $decoder->decode();
     echo $decoded;
+    
 
 --------------
 
@@ -60,45 +69,39 @@ __Decoding__
 
 #### Encoding:
 
-    // Set a variable containing a string of the encoded characters you wish to be encoded;
     
     $to_encode = 'Test-,;:';
-
+    // Set a variable containing a string of the encoded characters you wish to be encoded;
+    
+    $encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
     // An instance of encoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
     // A single argument value is required and must be of type String;
     
-    $encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
-
+    $encoded = $encoder->encode();
     // Get the encoded result by using the encode method on the returned instance of encoderplus;
     
-    $encoded = $encoder->encode();
-
-    // Display the encoded result, which is of type String;
-    
     echo $encoded;
-
+    // Display the encoded result, which is of type String;
     // Test&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
+    
 
 #### Decoding:
 
-    // Set a variable containing a string of the encoded characters you wish to be decoded;
     
     $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
-
+    // Set a variable containing a string of the encoded characters you wish to be decoded;
+    
+    $decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
     // An instance of decoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
     // A single argument value is required and must be of type String;
     
-    $decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
-
+    $decoded = $decoder->decode();
     // Get the decoded result by using the decode method on the returned instance of decoderplus;
     
-    $decoded = $decoder->decode();
-
-    // Display the decoded result, which is of type String
-    
     echo $decoded;
-
+    // Display the decoded result, which is of type String;
     // Test~*(#
+    
 
 --------------
 
