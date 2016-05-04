@@ -3,7 +3,7 @@
 	"description": "A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.",
 	"license": "MIT",
 	"keywords": [
-	  	"v2.0.2",
+	  	"v3.0",
 		"php",
 		"html",
 		"htmlentities",
@@ -20,7 +20,7 @@
 			"role": "Developer"
 		}
 	],
-	"version": "2.0.2",
+	"version": "3.0",
 	"minimum-stability": "stable",
 	"homepage": "http://htmlentities.gavingordon.com",
 	"support": {
