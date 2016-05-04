@@ -1,6 +1,4 @@
-# HtmlEntities
-
---------------
+# HtmlEntities 
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
 
@@ -8,14 +6,19 @@
 
 ## Prologue
 
-The ability to encode and decode a certain set of characters called 'Html Entities' has existed since PHP4. There are 4 nearly identical functions, built into PHP, related to the encoding and decoding of 'Html Entities'; yet, although each of these 4 functions are very similar to one and other, 2 of them are more robust and provide some additional capability. 
+The ability to encode and decode a certain set of characters called 'Html Entities' has existed since PHP4. Amongst the vast number of functions built into PHP, there are 4 nearly identical functions that are used to encode and decode html entities; despite their similarities, however, 2 of them do provide additional capabilities not available to the others.
 
-| Encode Func. | Decode Func. |
+| Encoding Functions | Decoding Functions |
 |--------------|--------------|
-| htmlentities | html_entity_decode | 
-| htmlspecialchars | htmlspecialchars_decode |
+| htmlentities&sup1; | html_entity_decode&sup1; | 
+| htmlspecialchars&sup2; | htmlspecialchars_decode&sup2; |
 
-__Note__: *Special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.*
+
+__&sup1;__ *htmlentities and html_entity_decode can only encode and decode characters within PHP's HTML translations table.*
+
+__&sup2;__ *htmlspecialchars and htmlspecialchars_decode can only encode and decode special characters&sup3;.*
+
+__&sup3;__ *special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.*
 
 --------------
 
@@ -27,47 +30,51 @@ What sets this class apart from the rest is that this class, in addition to bein
 
 ## Quick Class Overview
 
-- __Setting__
-$str_to_encode = 'String containing values to encode.';
-$encoder = new GGG\HtmlEntities\EncoderPlus( $str_to_encode );
+__Encoding__
 
-or
+    use \GGG\HtmlEntities\EncoderPlus as Encoder;
+    $to_encode = 'String of values to encode.';
+    $encoder = new Encoder( $to_encode );
+    $encoded = $encoder->encode();
+    echo $encoded;
 
-str_to_decode = 'String containing values to decode.';
-$decoder = new GGG\HtmlEntities\DecoderPlus( str_to_decode );
+__Decoding__
 
-- __Getting__
-$encoded = $encoder->encode();
-
-or
-
-$decoded = $decoder->decode();
+    use \GGG\HtmlEntities\DecoderPlus as Decoder;
+    $to_decode = 'String of values to decode.';
+    $decoder = new Decoder( $to_decode );
+    $decoded = $decoder->decode();
+    echo $decoded;
 
 --------------
 
 ### Installation (via Composer)
 
-	composer require gavinggordon/htmlentities
+    composer require gavinggordon/htmlentities
 
 ### Include autoloader.php
 
-	include_once( __DIR__ . '/vendor/autoload.php' );
+    include_once( __DIR__ . '/vendor/autoload.php' );
 
 ### Examples
 
 #### Encoding:
 
     // Set a variable containing a string of the encoded characters you wish to be encoded;
+    
     $to_encode = 'Test-,;:';
 
     // An instance of encoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
     // A single argument value is required and must be of type String;
-	$encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
+    
+    $encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
 
     // Get the encoded result by using the encode method on the returned instance of encoderplus;
+    
     $encoded = $encoder->encode();
 
     // Display the encoded result, which is of type String;
+    
     echo $encoded;
 
     // Test&amp;hyphen;&amp;comma;&amp;semi;&amp;colon;
@@ -75,22 +82,28 @@ $decoded = $decoder->decode();
 #### Decoding:
 
     // Set a variable containing a string of the encoded characters you wish to be decoded;
+    
     $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
 
     // An instance of decoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
     // A single argument value is required and must be of type String;
-	$decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
+    
+    $decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
 
     // Get the decoded result by using the decode method on the returned instance of decoderplus;
+    
     $decoded = $decoder->decode();
 
     // Display the decoded result, which is of type String
+    
     echo $decoded;
 
     // Test~*(#
 
 --------------
 
-[Click here](http://www.phpclasses.org/package/9698.html) to view this class on [PHPClasses.org](http://www.phpclasses.org).
+#### More Information
+
+This [class](http://www.phpclasses.org/package/9698.html) has been nominated for a PHP Innovation Award, provided by [PHPClasses.org](http://www.phpclasses.org). If you found [this class](http://www.phpclasses.org/package/9698.html) to be at all interesting, helpful, particularly useful, or innovative in any way, please [vote](http://www.phpclasses.org/vote.html) for it, to show your support for [this](http://www.phpclasses.org/package/9698.html) or any other PHP classes accessible online via my [GitHub profile](https://github.com/gavinggordon) or [PHPClasses.org profile](http://www.phpclasses.org/browse/author/1348645.html).
 
 --------------
