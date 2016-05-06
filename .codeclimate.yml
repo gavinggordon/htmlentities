@@ -1,0 +1,22 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+ratings:
+  paths:
+  - src/
+  - src/Abstracts/
+  - src/Interfaces/
+  - src/Traits/
+  - "**.php"
+exclude_paths:
+  - tests/
+  - tests/Abstracts/
+  - tests/Interfaces/
+  - tests/Traits/
