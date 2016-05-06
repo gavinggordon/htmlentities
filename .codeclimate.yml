@@ -8,15 +8,18 @@ engines:
     enabled: true
   phpmd:
     enabled: true
+  phpcodesniffer:
+    enabled: true
 ratings:
   paths:
-  - src/
-  - src/Abstracts/
-  - src/Interfaces/
-  - src/Traits/
+  - src/**
+  - src/Abstracts/**
+  - src/Interfaces/**
+  - src/Traits/**
   - "**.php"
 exclude_paths:
-  - tests/
+  - tests/**/*
+  - "**/vendor/**/*"
   - tests/Abstracts/
   - tests/Interfaces/
   - tests/Traits/
