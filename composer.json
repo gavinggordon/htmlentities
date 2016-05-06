@@ -9,8 +9,16 @@
 		"htmlentities",
 		"entities",
 		"encode",
+		"encoder",
+		"encoding",
 		"decode",
-		"format"
+		"decoder",
+		"decoding",
+		"formatter",
+		"get_html_translation_table",
+		"html_translation_table",
+		"html_translation",
+		"translation_table"
 	],
 	"authors": [
 		{
@@ -35,7 +43,8 @@
 	],
 	"require": {},
 	"require-dev": {
-		"phpunit/phpunit": "4.0.*"
+		"phpunit/phpunit": "4.0.*",
+		"codeclimate/php-test-reporter": "dev-master"
 	},
 	"autoload": {
 			"psr-4": {
