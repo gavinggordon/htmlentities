@@ -350,14 +350,14 @@ class HtmlEntities
     private function htmlentities_plus( $input ) {
       $encoded = NULL;
       $key = NULL;
-      $encoded_chars = $this->chars;
-      $decoded_chars = array_flip( $this->chars );
+      $decoded_chars = $this->chars;
+      $encoded_chars = array_flip( $this->chars );
       if( is_array( $input ) ) {
         $encoded = [];
         foreach( $input as $index => $char ) {
           if( in_array( $char, $decoded_chars ) ) {
-            $keys = array_keys( $decoded_chars, $char );
-            $encoded[ $index ] = $encoded_chars[ $keys[0] ];
+            $key = array_search( $decoded_chars, $char );
+            $encoded[ $index ] = $encoded_chars[ $key ];
           } else {
             $encoded[ $index ] = $char;
           }
@@ -377,8 +377,8 @@ class HtmlEntities
           $chars = str_split( $input );
           foreach( $chars as $index => $char ) {
             if( in_array( $char, $decoded_chars ) ) {
-              $keys = array_keys( $decoded_chars, $char );
-              $encoded[ $index ] = $encoded_chars[ $keys[0] ];
+              $key = array_search( $decoded_chars, $char );
+              $encoded[ $index ] = $encoded_chars[ $key ];
             } else {
               $encoded[ $index ] = $char;
             }
