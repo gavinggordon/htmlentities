@@ -107,6 +107,12 @@ __Decoding__
 
 #### More Information
 
+##### CodeClimate
+
+Check out our [CodeClimate](https://codeclimate.com) stats by [clicking here](https://codeclimate.com/github/gavinggordon/htmlentities).
+
+##### PHP Innovation Award
+
 This [class](http://www.phpclasses.org/package/9698.html) has been nominated for a PHP Innovation Award, provided by [PHPClasses.org](http://www.phpclasses.org). If you found [this class](http://www.phpclasses.org/package/9698.html) to be at all interesting, helpful, particularly useful, or innovative in any way, please [vote](http://www.phpclasses.org/vote.html) for it, to show your support for [this](http://www.phpclasses.org/package/9698.html) or any other PHP classes accessible online via my [GitHub profile](https://github.com/gavinggordon) or [PHPClasses.org profile](http://www.phpclasses.org/browse/author/1348645.html).
 
 --------------

@@ -576,12 +576,12 @@ class HtmlEntities
         $key = null;
         $encodedChars = $this->encodedChars;
         $decodedChars = $this->decodedChars;
-        if (is_array($input))
+        if (is_array($input)) 
         {
             $decoded = array();
-            foreach($input as $index => $char)
+            foreach ($input as $index => $char)
             {
-                if (in_array($char, $encodedChars))
+                if (in_array($char, $encodedChars)) 
                 {
                     $keys = array_keys($encodedChars, $char);
                     $decoded[$index] = $decodedChars[$keys[0]];
@@ -593,25 +593,25 @@ class HtmlEntities
             }
             $decoded = implode('', $decoded);
         }
-        if (is_string($input))
+        if (is_string($input)) 
         {
-            if (strlen($input) === 1)
+            if (strlen($input) === 1) 
             {
-                if (in_array($input, $encodedChars))
+                if (in_array($input, $encodedChars)) 
                 {
                     $flipped = array_flip($encodedChars);
                     $key = $flipped[$input];
                     $decoded = $decodedChars[$key];
                 }
             }
-            if (strlen($input) >= 2)
+            if (strlen($input) >= 2) 
             {
                 $decoded = array();
                 preg_match_all('/((\&amp\;\w+\;)|([\w\d\s]{1,}))/i', $input, $matches);
                 $chars = $matches[1];
-                foreach($chars as $index => $char)
+                foreach ($chars as $index => $char) 
                 {
-                    if (in_array($char, $encodedChars))
+                    if (in_array($char, $encodedChars)) 
                     {
                         $keys = array_keys($encodedChars, $char);
                         $decoded[$index] = $decodedChars[$keys[0]];
@@ -639,12 +639,12 @@ class HtmlEntities
         $key = null;
         $decodedChars = $this->decodedChars;
         $encodedChars = $this->encodedChars;
-        if (is_array($input))
+        if (is_array($input)) 
         {
             $encoded = array();
-            foreach($input as $index => $char)
+            foreach ($input as $index => $char) 
             {
-                if (in_array($char, $decodedChars))
+                if (in_array($char, $decodedChars)) 
                 {
                     $keys = array_keys($decodedChars, $char);
                     $encoded[$index] = $encodedChars[$keys[0]];
@@ -656,11 +656,11 @@ class HtmlEntities
             }
             $encoded = implode('', $encoded);
         }
-        if (is_string($input))
+        if (is_string($input)) 
         {
-            if (strlen($input) === 1)
+            if (strlen($input) === 1) 
             {
-                if (in_array($input, $decodedChars))
+                if (in_array($input, $decodedChars)) 
                 {
                     $flipped = array_flip($decodedChars);
                     $key = $flipped[$input];
@@ -671,9 +671,9 @@ class HtmlEntities
             {
                 $encoded = array();
                 $chars = str_split($input);
-                foreach($chars as $index => $char)
+                foreach ($chars as $index => $char) 
                 {
-                    if (in_array($char, $decodedChars))
+                    if (in_array($char, $decodedChars)) 
                     {
                         $keys = array_keys($decodedChars, $char);
                         $encoded[$index] = $encodedChars[$keys[0]];
