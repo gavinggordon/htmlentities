@@ -342,7 +342,7 @@ class HtmlEntities
       return $this->decoded;
     }
 
-    public function encode( $toEncoded ) {
+    public function encode( $toEncode ) {
       $this->htmlentities_plus( $toEncode );
       return $this->get_encoded();
     }
