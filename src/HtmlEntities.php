@@ -6,7 +6,7 @@ class HtmlEntities
 {
     private $decoded;
     private $encoded;
-    private $decoded_chars = array(
+    private $decodedChars = array(
         '0' => '?',
         '1' => '!',
         '2' => '@',
@@ -285,7 +285,7 @@ class HtmlEntities
         '275' => '♥',
         '276' => '♦'
     );
-    private $encoded_chars = array(
+    private $encodedChars = array(
         '0' => '&amp;quest;',
         '1' => '&amp;excl;',
         '2' => '&amp;commat;',
@@ -850,25 +850,25 @@ class HtmlEntities
   
   public function decode($toDecode)
   {
-    $this->html_entity_decode_plus($toDecode);
-    return $this->get_decoded();
+    $this->htmlEntityDecodePlus($toDecode);
+    return $this->getDecoded();
   }
   
-  private function html_entity_decode_plus($input)
+  private function htmlEntityDecodePlus($input)
   {
-    $decoded = NULL;
-    $key = NULL;
-    $encoded_chars = $this->encoded_chars;
-    $decoded_chars = $this->decoded_chars;
+    $decoded = null;
+    $key = null;
+    $encodedChars = $this->encodedChars;
+    $decodedChars = $this->decodedChars;
     if(is_array($input))
     {
       $decoded = array();
       foreach($input as $index => $char)
       {
-        if(in_array($char, $encoded_chars))
+        if(in_array($char, $encodedChars))
         {
-          $keys = array_keys($encoded_chars, $char);
-          $decoded[$index] = $decoded_chars[$keys[0]];
+          $keys = array_keys($encodedChars, $char);
+          $decoded[$index] = $decodedChars[$keys[0]];
         }
         else
         {
@@ -881,11 +881,11 @@ class HtmlEntities
     {
       if(strlen($input) === 1)
       {
-        if(in_array($input, $encoded_chars))
+        if(in_array($input, $encodedChars))
         {
-          $flipped = array_flip($encoded_chars);
+          $flipped = array_flip($encodedChars);
           $key = $flipped[$input];
-          $decoded = $decoded_chars[$key];
+          $decoded = $decodedChars[$key];
         }
       }
       if(strlen($input) >= 2)
@@ -895,10 +895,10 @@ class HtmlEntities
         $chars = $matches[1];
         foreach($chars as $index => $char)
         {
-          if(in_array($char, $encoded_chars))
+          if(in_array($char, $encodedChars))
           {
-            $keys = array_keys($encoded_chars, $char);
-            $decoded[$index] = $decoded_chars[$keys[0]];
+            $keys = array_keys($encodedChars, $char);
+            $decoded[$index] = $decodedChars[$keys[0]];
           }
           else
           {
@@ -911,32 +911,32 @@ class HtmlEntities
     }
   }
   
-  private function get_decoded()
+  private function getDecoded()
   {
     return $this->decoded;
   }
   
   public function encode($toEncode)
   {
-    $this->htmlentities_plus($toEncode);
-    return $this->get_encoded();
+    $this->htmlentitiesPlus($toEncode);
+    return $this->getEncoded();
   }
   
-  private function htmlentities_plus($input)
+  private function htmlentitiesPlus($input)
   {
-    $encoded = NULL;
-    $key = NULL;
-    $decoded_chars = $this->decoded_chars;
-    $encoded_chars = $this->encoded_chars;
+    $encoded = null;
+    $key = null;
+    $decodedChars = $this->decodedChars;
+    $encodedChars = $this->encodedChars;
     if(is_array($input))
     {
       $encoded = array();
       foreach($input as $index => $char)
       {
-        if(in_array($char, $decoded_chars))
+        if(in_array($char, $decodedChars))
         {
-          $keys = array_keys($decoded_chars, $char);
-          $encoded[$index] = $encoded_chars[$keys[0]];
+          $keys = array_keys($decodedChars, $char);
+          $encoded[$index] = $encodedChars[$keys[0]];
         }
         else
         {
@@ -949,11 +949,11 @@ class HtmlEntities
     {
       if(strlen($input) === 1)
       {
-        if(in_array($input, $decoded_chars))
+        if(in_array($input, $decodedChars))
         {
-          $flipped = array_flip($decoded_chars);
+          $flipped = array_flip($decodedChars);
           $key = $flipped[$input];
-          $encoded = $encoded_chars[$key];
+          $encoded = $encodedChars[$key];
         }
       }
       if(strlen($input) >= 2)
@@ -962,10 +962,10 @@ class HtmlEntities
         $chars = str_split($input);
         foreach($chars as $index => $char)
         {
-          if(in_array($char, $decoded_chars))
+          if(in_array($char, $decodedChars))
           {
-            $keys = array_keys($decoded_chars, $char);
-            $encoded[$index] = $encoded_chars[$keys[0]];
+            $keys = array_keys($decodedChars, $char);
+            $encoded[$index] = $encodedChars[$keys[0]];
           }
           else
           {
@@ -978,7 +978,7 @@ class HtmlEntities
     }
   }
   
-  private function get_encoded()
+  private function getEncoded()
   {
     return $this->encoded;
   }
