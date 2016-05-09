@@ -285,7 +285,6 @@ class HtmlEntities
         '275' => '♥',
         '276' => '♦'
     );
-
     private $encoded_chars = array(
         '0' => '&amp;quest;',
         '1' => '&amp;excl;',
@@ -844,112 +843,144 @@ class HtmlEntities
         '&amp;diams;' => '♦'
     );
     
-    public function __construct()
+  public function __construct()
+  {
+    return $this;
+  }
+  
+  public function decode($toDecode)
+  {
+    $this->html_entity_decode_plus($toDecode);
+    return $this->get_decoded();
+  }
+  
+  private function html_entity_decode_plus($input)
+  {
+    $decoded = NULL;
+    $key = NULL;
+    $encoded_chars = $this->encoded_chars;
+    $decoded_chars = $this->decoded_chars;
+    if(is_array($input))
     {
-      return $this;
+      $decoded = array();
+      foreach($input as $index => $char)
+      {
+        if(in_array($char, $encoded_chars))
+        {
+          $keys = array_keys($encoded_chars, $char);
+          $decoded[$index] = $decoded_chars[$keys[0]];
+        }
+        else
+        {
+          $decoded[$index] = $char;
+        }
+      }
+      $decoded = implode('', $decoded);
     }
-    
-    public function decode( $toDecode ) {
-      $this->html_entity_decode_plus( $toDecode );
-      return $this->get_decoded();
-    }
-
-    private function html_entity_decode_plus( $input ) {
-      $decoded = NULL;
-      $key = NULL;
-      $encoded_chars = $this->encoded_chars;
-      $decoded_chars = $this->decoded_chars;
-      if( is_array( $input ) ) {
-        $decoded = [];
-        foreach( $input as $index => $char ) {
-          if( in_array( $char, $encoded_chars ) ) {
-            $keys = array_keys( $encoded_chars, $char );
-            $decoded[ $index ] = $decoded_chars[ $keys[0] ];
-          } else {
-            $decoded[ $index ] = $char;
+    if(is_string($input))
+    {
+      if(strlen($input) === 1)
+      {
+        if(in_array($input, $encoded_chars))
+        {
+          $flipped = array_flip($encoded_chars);
+          $key = $flipped[$input];
+          $decoded = $decoded_chars[$key];
+        }
+      }
+      if(strlen($input) >= 2)
+      {
+        $decoded = array();
+        preg_match_all('/((\&amp\;\w+\;)|([\w\d\s]{1,}))/i', $input, $matches);
+        $chars = $matches[1];
+        foreach($chars as $index => $char)
+        {
+          if(in_array($char, $encoded_chars))
+          {
+            $keys = array_keys($encoded_chars, $char);
+            $decoded[$index] = $decoded_chars[$keys[0]];
+          }
+          else
+          {
+            $decoded[$index] = $char;
           }
         }
         $decoded = implode('', $decoded);
       }
-      if( is_string( $input ) ) {
-        if( strlen( $input ) === 1 ) {
-          if( in_array( $input, $encoded_chars ) ) {
-            $flipped = array_flip( $encoded_chars );
-            $key = $flipped[ $input ];
-            $decoded = $decoded_chars[ $key ];
-          }
+      $this->decoded = $decoded;
+    }
+  }
+  
+  private function get_decoded()
+  {
+    return $this->decoded;
+  }
+  
+  public function encode($toEncode)
+  {
+    $this->htmlentities_plus($toEncode);
+    return $this->get_encoded();
+  }
+  
+  private function htmlentities_plus($input)
+  {
+    $encoded = NULL;
+    $key = NULL;
+    $decoded_chars = $this->decoded_chars;
+    $encoded_chars = $this->encoded_chars;
+    if(is_array($input))
+    {
+      $encoded = array();
+      foreach($input as $index => $char)
+      {
+        if(in_array($char, $decoded_chars))
+        {
+          $keys = array_keys($decoded_chars, $char);
+          $encoded[$index] = $encoded_chars[$keys[0]];
         }
-        if( strlen( $input ) >= 2 ) {
-          $decoded = [];
-          preg_match_all( '/((\&amp\;\w+\;)|([\w\d\s]{1,}))/i', $input, $matches );
-          $chars = $matches[1];
-          foreach( $chars as $index => $char ) {
-            if( in_array( $char, $encoded_chars ) ) {
-              $keys = array_keys( $encoded_chars, $char );
-              $decoded[ $index ] = $decoded_chars[ $keys[0] ];
-              } else {
-                $decoded[ $index ] = $char;
-              }
-            }
-            $decoded = implode('', $decoded);
-          }
-        $this->decoded = $decoded;
+        else
+        {
+          $encoded[$index] = $char;
+        }
       }
+      $encoded = implode('', $encoded);
     }
-
-    private function get_decoded() {
-      return $this->decoded;
-    }
-
-    public function encode( $toEncode ) {
-      $this->htmlentities_plus( $toEncode );
-      return $this->get_encoded();
-    }
-
-    private function htmlentities_plus( $input ) {
-      $encoded = NULL;
-      $key = NULL;
-      $decoded_chars = $this->decoded_chars;
-      $encoded_chars = $this->encoded_chars;
-      if( is_array( $input ) ) {
-        $encoded = [];
-        foreach( $input as $index => $char ) {
-          if( in_array( $char, $decoded_chars ) ) {
-            $keys = array_keys( $decoded_chars, $char );
-            $encoded[ $index ] = $encoded_chars[ $keys[0] ];
-          } else {
-            $encoded[ $index ] = $char;
+    if(is_string($input))
+    {
+      if(strlen($input) === 1)
+      {
+        if(in_array($input, $decoded_chars))
+        {
+          $flipped = array_flip($decoded_chars);
+          $key = $flipped[$input];
+          $encoded = $encoded_chars[$key];
+        }
+      }
+      if(strlen($input) >= 2)
+      {
+        $encoded = array();
+        $chars = str_split($input);
+        foreach($chars as $index => $char)
+        {
+          if(in_array($char, $decoded_chars))
+          {
+            $keys = array_keys($decoded_chars, $char);
+            $encoded[$index] = $encoded_chars[$keys[0]];
+          }
+          else
+          {
+            $encoded[$index] = $char;
           }
         }
         $encoded = implode('', $encoded);
       }
-      if( is_string( $input ) ) {
-        if( strlen( $input ) === 1 ) {
-          if( in_array( $input, $decoded_chars ) ) {
-            $flipped = array_flip( $decoded_chars );
-            $key = $flipped[ $input ];
-            $encoded = $encoded_chars[ $key ];
-          }
-        }
-        if( strlen( $input ) >= 2 ) {
-          $encoded = [];
-          $chars = str_split( $input );
-          foreach( $chars as $index => $char ) {
-            if( in_array( $char, $decoded_chars ) ) {
-              $keys = array_keys( $decoded_chars, $char );
-              $encoded[ $index ] = $encoded_chars[ $keys[0] ];
-            } else {
-              $encoded[ $index ] = $char;
-            }
-          }
-          $encoded = implode('', $encoded);
-        }
-        $this->encoded = $encoded;
-      }
+      $this->encoded = $encoded;
     }
-
-    private function get_encoded() {
-      return $this->encoded;
-    }
-
+  }
+  
+  private function get_encoded()
+  {
+    return $this->encoded;
+  }
+  
 }
