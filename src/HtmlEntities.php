@@ -356,7 +356,7 @@ class HtmlEntities
         $encoded = [];
         foreach( $input as $index => $char ) {
           if( in_array( $char, $decoded_chars ) ) {
-            $key = array_search( $decoded_chars, $char );
+            $key = array_search( $char, $decoded_chars );
             $encoded[ $index ] = $encoded_chars[ $key ];
           } else {
             $encoded[ $index ] = $char;
@@ -377,7 +377,7 @@ class HtmlEntities
           $chars = str_split( $input );
           foreach( $chars as $index => $char ) {
             if( in_array( $char, $decoded_chars ) ) {
-              $key = array_search( $decoded_chars, $char );
+              $key = array_search( $char, $decoded_chars);
               $encoded[ $index ] = $encoded_chars[ $key ];
             } else {
               $encoded[ $index ] = $char;
