@@ -1,6 +1,7 @@
 # HtmlEntities 
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
+[![Dependency Status](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7)
 
 --------------
 
