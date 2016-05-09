@@ -17,7 +17,9 @@ The ability to encode and decode a certain set of characters called 'Html Entiti
 
 
 __&sup1;__ *htmlentities and html_entity_decode can only encode and decode characters within PHP's HTML translations table.*
+
 __&sup2;__ *htmlspecialchars and htmlspecialchars_decode can only encode and decode special characters&sup3;.*
+
 __&sup3;__ *special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.*
 
 --------------
@@ -40,19 +42,19 @@ What sets this class apart from the rest is that this class, in addition to bein
 
 __Encoding__
     
-    use \GGG\HtmlEntities\EncoderPlus as Encoder;
+    use \GGG\HtmlEntities\HtmlEntities as HtmlEntities;
     $to_encode = 'String of values to encode.';
-    $encoder = new Encoder( $to_encode );
-    $encoded = $encoder->encode();
+    $htmlentities = new HtmlEntities();
+    $encoded = $htmlentities->encode( $to_encode );
     echo $encoded;
     
 
 __Decoding__
     
-    use \GGG\HtmlEntities\DecoderPlus as Decoder;
+    use \GGG\HtmlEntities\HtmlEntities as HtmlEntities;
     $to_decode = 'String of values to decode.';
-    $decoder = new Decoder( $to_decode );
-    $decoded = $decoder->decode();
+    $htmlentities = new HtmlEntities();
+    $decoded = $htmlentities->decode( $to_decode );
     echo $decoded;
     
 
@@ -65,6 +67,10 @@ __Decoding__
 ### Include autoloader.php
 
     include_once( __DIR__ . '/vendor/autoload.php' );
+    
+### Instantiation
+
+    $htmlentities = new \GGG\HtmlEntities\HtmlEntities();
 
 ### Examples
 
@@ -74,12 +80,8 @@ __Decoding__
     $to_encode = 'Test-,;:';
     // Set a variable containing a string of the encoded characters you wish to be encoded;
     
-    $encoder = new \GGG\HtmlEntities\EncoderPlus( $to_encode );
-    // An instance of encoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
-    // A single argument value is required and must be of type String;
-    
-    $encoded = $encoder->encode();
-    // Get the encoded result by using the encode method on the returned instance of encoderplus;
+    $encoded = $htmlentities->encode();
+    // Get the encoded result by using the encode method on the returned instance of HtmlEntities;
     
     echo $encoded;
     // Display the encoded result, which is of type String;
@@ -92,12 +94,8 @@ __Decoding__
     $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
     // Set a variable containing a string of the encoded characters you wish to be decoded;
     
-    $decoder = new \GGG\HtmlEntities\DecoderPlus( $to_decode );
-    // An instance of decoderplus is returned, and the necessary internal property value is set, when properly "__construct"ed:
-    // A single argument value is required and must be of type String;
-    
-    $decoded = $decoder->decode();
-    // Get the decoded result by using the decode method on the returned instance of decoderplus;
+    $decoded = $htmlentities->decode();
+    // Get the decoded result by using the decode method on the returned instance of HtmlEntities;
     
     echo $decoded;
     // Display the decoded result, which is of type String;
