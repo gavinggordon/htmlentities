@@ -13,13 +13,7 @@ engines:
 ratings:
   paths:
   - src/**
-  - src/Abstracts/**
-  - src/Interfaces/**
-  - src/Traits/**
   - "**.php"
 exclude_paths:
   - tests/**/*
   - "**/vendor/**/*"
-  - tests/Abstracts/
-  - tests/Interfaces/
-  - tests/Traits/
