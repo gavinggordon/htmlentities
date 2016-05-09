@@ -6,7 +6,7 @@ class HtmlEntities
 {
     private $decoded;
     private $encoded;
-    $decoded_chars = array(
+    private $decoded_chars = array(
         '0' => '?',
         '1' => '!',
         '2' => '@',
@@ -286,7 +286,7 @@ class HtmlEntities
         '276' => '♦'
     );
 
-    $encoded_chars = array(
+    private $encoded_chars = array(
         '0' => '&amp;quest;',
         '1' => '&amp;excl;',
         '2' => '&amp;commat;',
