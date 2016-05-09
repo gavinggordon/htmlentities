@@ -80,7 +80,7 @@ __Decoding__
     $to_encode = 'Test-,;:';
     // Set a variable containing a string of the encoded characters you wish to be encoded;
     
-    $encoded = $htmlentities->encode();
+    $encoded = $htmlentities->encode( $to_encode );
     // Get the encoded result by using the encode method on the returned instance of HtmlEntities;
     
     echo $encoded;
@@ -94,7 +94,7 @@ __Decoding__
     $to_decode = 'Test&amp;tilde;&amp;ast;&amp;lpar;&amp;num;';
     // Set a variable containing a string of the encoded characters you wish to be decoded;
     
-    $decoded = $htmlentities->decode();
+    $decoded = $htmlentities->decode( $to_decode );
     // Get the decoded result by using the decode method on the returned instance of HtmlEntities;
     
     echo $decoded;
