@@ -23,9 +23,6 @@ composer.lock
 # Backup files
 *.bkup
 
-# Composer .lock file
-*.lock
-
 # =========================
 # Operating System Files
 # =========================
@@ -55,4 +52,3 @@ Network Trash Folder
 Temporary Items
 .apdisk
 vendor
-build
