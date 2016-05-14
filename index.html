@@ -1,0 +1,210 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Htmlentities</title>
+  <meta name="description" content="A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Htmlentities</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/gavinggordon/htmlentities/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/gavinggordon/htmlentities/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/gavinggordon/htmlentities" class="code">View Htmlentities on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="htmlentities-v41" class="anchor" href="#htmlentities-v41" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HtmlEntities v4.1</h1>
+
+<p><a href="https://travis-ci.org/gavinggordon/htmlentities"><img src="https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7"><img src="https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7/badge.svg?style=flat" alt="Dependency Status"></a></p>
+
+<hr>
+
+<h2>
+<a id="prologue" class="anchor" href="#prologue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prologue</h2>
+
+<p>The ability to encode and decode a certain set of characters called 'Html Entities' has existed since PHP4. Amongst the vast number of functions built into PHP, there are 4 nearly identical functions that are used to encode and decode html entities; despite their similarities, however, 2 of them do provide additional capabilities not available to the others.</p>
+
+<table>
+<thead>
+<tr>
+<th>Encoding Functions</th>
+<th>Decoding Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>htmlentities¹</td>
+<td>html_entity_decode¹</td>
+</tr>
+<tr>
+<td>htmlspecialchars²</td>
+<td>htmlspecialchars_decode²</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>¹</strong> <em>htmlentities and html_entity_decode can only encode and decode characters within PHP's HTML translations table.</em></p>
+
+<p><strong>²</strong> <em>htmlspecialchars and htmlspecialchars_decode can only encode and decode special characters³.</em></p>
+
+<p><strong>³</strong> <em>special characters are not interpreted as HTML tags and 8-bit characters are encoded as ASCII characters only.</em></p>
+
+<hr>
+
+<h2>
+<a id="what-sets-this-apart" class="anchor" href="#what-sets-this-apart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What Sets This Apart</h2>
+
+<p>What sets this class apart from the rest is that this class, in addition to being able to encode and decode all of the same characters/entities that can be encoded and decoded by PHP's htmlentities() and html_entity_decode() functions, it can also encode and decode a very large number of characters/entities which PHP's built-in htmlentities encoding and decoding functions won't encode/decode, due to their lack of special meaning in HTML, like:</p>
+
+<ul>
+<li>punctuation characters;</li>
+<li>ASCII characters;</li>
+<li>Greek characters;</li>
+<li>Latin characters;</li>
+<li>Russian characters;</li>
+<li>Arithmetic characters;</li>
+<li>and tons more...</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="quick-class-overview" class="anchor" href="#quick-class-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Class Overview</h2>
+
+<p><strong>Encoding</strong></p>
+
+<pre><code>  use \GGG\HtmlEntities as HtmlEntities;
+  $to_encode = 'String of values to encode.';
+  $htmlentities = new HtmlEntities();
+  $encoded = $htmlentities-&gt;encode( $to_encode );
+  echo $encoded;
+</code></pre>
+
+<p><strong>Decoding</strong></p>
+
+<pre><code>  use \GGG\HtmlEntities as HtmlEntities;
+  $to_decode = 'String of values to decode.';
+  $htmlentities = new HtmlEntities();
+  $decoded = $htmlentities-&gt;decode( $to_decode );
+  echo $decoded;
+</code></pre>
+
+<hr>
+
+<h3>
+<a id="installation-via-composer" class="anchor" href="#installation-via-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation (via Composer)</h3>
+
+<pre><code>  composer require gavinggordon/htmlentities
+</code></pre>
+
+<h3>
+<a id="include-autoloaderphp" class="anchor" href="#include-autoloaderphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include autoloader.php</h3>
+
+<pre><code>  include_once( __DIR__ . '/vendor/autoload.php' );
+</code></pre>
+
+<h3>
+<a id="instantiation" class="anchor" href="#instantiation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instantiation</h3>
+
+<pre><code>  $htmlentities = new \GGG\HtmlEntities();
+</code></pre>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h3>
+
+<h4>
+<a id="encoding" class="anchor" href="#encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Encoding:</h4>
+
+<pre><code>  $to_encode = 'Test-,;:';
+  // Set a variable containing a string of the encoded
+  // characters you wish to be encoded;
+
+  $encoded = $htmlentities-&gt;encode( $to_encode );
+  // Get the encoded result by using the encode method
+  // on the returned instance of HtmlEntities;
+
+  echo $encoded;
+  // Display the encoded result, which is of type String;
+  // Test&amp;amp;hyphen;&amp;amp;comma;&amp;amp;semi;&amp;amp;colon;
+</code></pre>
+
+<h4>
+<a id="decoding" class="anchor" href="#decoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding:</h4>
+
+<pre><code>  $to_decode = 'Test&amp;amp;tilde;&amp;amp;ast;&amp;amp;lpar;&amp;amp;num;';
+  // Set a variable containing a string of the encoded
+  // characters you wish to be decoded;
+
+  $decoded = $htmlentities-&gt;decode( $to_decode );
+  // Get the decoded result by using the decode method
+  // on the returned instance of HtmlEntities;
+
+  echo $decoded;
+  // Display the decoded result, which is of type String;
+  // Test~*(#
+</code></pre>
+
+<hr>
+
+<h4>
+<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More Information</h4>
+
+<h5>
+<a id="codeclimate" class="anchor" href="#codeclimate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CodeClimate</h5>
+
+<p>Check out our <a href="https://codeclimate.com">CodeClimate</a> stats by <a href="https://codeclimate.com/github/gavinggordon/htmlentities">clicking here</a>.</p>
+
+<h5>
+<a id="php-innovation-award" class="anchor" href="#php-innovation-award" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP Innovation Award</h5>
+
+<p>This <a href="http://www.phpclasses.org/package/9698.html">class</a> has been nominated for a PHP Innovation Award, provided by <a href="http://www.phpclasses.org">PHPClasses.org</a>. If you found <a href="http://www.phpclasses.org/package/9698.html">this class</a> to be at all interesting, helpful, particularly useful, or innovative in any way, please <a href="http://www.phpclasses.org/vote.html">vote</a> for it, to show your support for <a href="http://www.phpclasses.org/package/9698.html">this</a> or any other PHP classes accessible online via my <a href="https://github.com/gavinggordon">GitHub profile</a> or <a href="http://www.phpclasses.org/browse/author/1348645.html">PHPClasses.org profile</a>.</p>
+
+<hr>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/gavinggordon" class="avatar"><img src="https://avatars0.githubusercontent.com/u/7691513?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/gavinggordon">gavinggordon</a> maintains <a href="https://github.com/gavinggordon/htmlentities">Htmlentities</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/gavinggordon/htmlentities/tarball/master" class="tar">tar</a><a href="https://github.com/gavinggordon/htmlentities/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
