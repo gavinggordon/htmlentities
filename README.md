@@ -1,4 +1,4 @@
-# HtmlEntities 
+# HtmlEntities v4.1
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
 [![Dependency Status](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7)
@@ -42,7 +42,7 @@ What sets this class apart from the rest is that this class, in addition to bein
 
 __Encoding__
     
-    use \GGG\HtmlEntities\HtmlEntities as HtmlEntities;
+    use \GGG\HtmlEntities as HtmlEntities;
     $to_encode = 'String of values to encode.';
     $htmlentities = new HtmlEntities();
     $encoded = $htmlentities->encode( $to_encode );
@@ -51,7 +51,7 @@ __Encoding__
 
 __Decoding__
     
-    use \GGG\HtmlEntities\HtmlEntities as HtmlEntities;
+    use \GGG\HtmlEntities as HtmlEntities;
     $to_decode = 'String of values to decode.';
     $htmlentities = new HtmlEntities();
     $decoded = $htmlentities->decode( $to_decode );
@@ -70,7 +70,7 @@ __Decoding__
     
 ### Instantiation
 
-    $htmlentities = new \GGG\HtmlEntities\HtmlEntities();
+    $htmlentities = new \GGG\HtmlEntities();
 
 ### Examples
 

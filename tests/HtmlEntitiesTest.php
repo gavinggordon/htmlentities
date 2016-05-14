@@ -1,6 +1,6 @@
 <?php
 
-use GGG\HtmlEntities\HtmlEntities;
+use GGG\HtmlEntities;
 
 class HtmlEntitiesTest extends \PHPUnit_Framework_TestCase
 {

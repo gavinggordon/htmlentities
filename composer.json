@@ -3,7 +3,7 @@
 	"description": "A PHP class which allows the decoding and encoding of a wider variety of characters compared to the standard htmlentities and html_entity_decode functions.",
 	"license": "MIT",
 	"keywords": [
-	  	"v4.0",
+	  	"v4.1",
 		"php",
 		"html",
 		"htmlentities",
@@ -28,7 +28,7 @@
 			"role": "Developer"
 		}
 	],
-	"version": "4.0",
+	"version": "4.1",
 	"minimum-stability": "stable",
 	"homepage": "http://htmlentities.gavingordon.com",
 	"support": {
@@ -48,7 +48,7 @@
 	},
 	"autoload": {
 			"psr-4": {
-				"GGG\\HtmlEntities\\": "src"
+				"GGG\\": "src"
 		}
 	}
 }
