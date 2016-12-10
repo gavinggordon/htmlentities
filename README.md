@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/gavinggordon/htmlentities.svg?branch=master)](https://travis-ci.org/gavinggordon/htmlentities)
 [![Dependency Status](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7/badge.svg?style=flat)](https://www.versioneye.com/user/projects/57305cbea0ca350034be70f7)
+[![Total Packagist Downloads](https://img.shields.io/packagist/dt/gavinggordon/htmlentities.svg)](https://packagist.org/packages/gavinggordon/htmlentities)
+[![Usage License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gavinggordon/htmlentities/blob/master/license.txt)
 
 --------------
 
